@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3mrrr3hxl7uc"]
+
+[ext_resource type="PackedScene" uid="uid://bndfufv4hjafu" path="res://Models/Egg/egg.glb" id="1_k7m5j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o6ug8"]
+radius = 0.0897256
+height = 0.27279
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="egg" parent="." instance=ExtResource("1_k7m5j")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0331202, 0)
+shape = SubResource("CapsuleShape3D_o6ug8")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://0my4vajc23ru"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Back" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.10101, 2.08165e-12)
+use_collision = true
+size = Vector3(5, 2.2, 0.1)
+
+[node name="Shelf2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1633e-12, 1.78229, 0.3)
+use_collision = true
+collision_layer = 3
+size = Vector3(5, 0.1, 0.5)
+
+[node name="Shelf3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1633e-12, 1.0147, 0.3)
+use_collision = true
+collision_layer = 3
+size = Vector3(5, 0.1, 0.5)
+
+[node name="Shelf4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1633e-12, 0.25, 0.3)
+use_collision = true
+collision_layer = 3
+size = Vector3(5, 0.1, 0.5)

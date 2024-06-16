@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5tc1afvxlcq"]
+
+[ext_resource type="PackedScene" uid="uid://b3nkiqyy57fb" path="res://Models/Watermelon/watermelon.glb" id="1_waquh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s4bfn"]
+
+[node name="Watermelon" type="RigidBody3D"]
+
+[node name="watermelon" parent="." instance=ExtResource("1_waquh")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_s4bfn")
