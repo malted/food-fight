@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b71xc30sp1sag"]
+[gd_scene load_steps=4 format=3 uid="uid://b71xc30sp1sag"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_4dt1m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60hy2"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.392157)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tadyt"]
 
@@ -18,6 +22,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12
 
 [node name="Hand item anchor" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.666415, -0.729963, -1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/Hand item anchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -5)
+size = Vector3(0.1, 0.1, 10)
+material = SubResource("StandardMaterial3D_60hy2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_tadyt")
@@ -51,3 +60,5 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]

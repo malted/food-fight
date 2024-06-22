@@ -7,6 +7,8 @@ radius = 0.0897256
 height = 0.27279
 
 [node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 512
+collision_mask = 513
 
 [node name="egg" parent="." instance=ExtResource("1_k7m5j")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -1,0 +1,265 @@
+[gd_scene load_steps=12 format=3 uid="uid://y6qdmae5wbj2"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_mria3"]
+[ext_resource type="PackedScene" uid="uid://bv2dfos2w752v" path="res://Prefabs/FPS.tscn" id="2_kk1b5"]
+[ext_resource type="Script" path="res://Scripts/Player display.gd" id="3_m42t8"]
+[ext_resource type="PackedScene" uid="uid://0my4vajc23ru" path="res://Prefabs/Shelf.tscn" id="4_mwr16"]
+[ext_resource type="PackedScene" uid="uid://cl4xlenxx21e7" path="res://Prefabs/Tomato.tscn" id="5_72n8t"]
+[ext_resource type="PackedScene" uid="uid://bi5tc1afvxlcq" path="res://Prefabs/Watermelon.tscn" id="6_4xtxx"]
+[ext_resource type="PackedScene" uid="uid://b33gh4djwspbs" path="res://Prefabs/Beans.tscn" id="7_6nnhf"]
+[ext_resource type="PackedScene" uid="uid://d3mrrr3hxl7uc" path="res://Prefabs/Egg.tscn" id="8_vq56k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m58cf"]
+albedo_color = Color(0.549182, 0.699863, 0.98361, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6im8m"]
+size = Vector3(99.9513, 0.00967932, 49.9476)
+
+[sub_resource type="Theme" id="Theme_h8mxr"]
+default_font_size = 20
+/colors/Red = Color(1, 0, 0, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Level root" type="Node3D"]
+script = ExtResource("1_mria3")
+
+[node name="Control" parent="." instance=ExtResource("2_kk1b5")]
+
+[node name="Player display" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -366.0
+offset_right = 281.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 28
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+script = ExtResource("3_m42t8")
+
+[node name="Room" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 4, 2.08165e-12)
+use_collision = true
+collision_mask = 0
+flip_faces = true
+size = Vector3(100, 8, 50)
+material = SubResource("StandardMaterial3D_m58cf")
+
+[node name="Floor Body" type="StaticBody3D" parent="Room"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Floor Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0254364, -3.99325, -0.0243759)
+shape = SubResource("BoxShape3D_6im8m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08165e-12, -0.426074, -9.89899)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Room"]
+transform = Transform3D(0.950086, 0.165997, 0.26416, -0.311987, 0.505507, 0.804442, -3.77215e-16, -0.846704, 0.532064, 0, 0, -39.4037)
+
+[node name="Shelf" parent="Room" instance=ExtResource("4_mwr16")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -5.371, -4, 5)
+
+[node name="Food" type="Node3D" parent="Room/Shelf"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, -1, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -2.34774e-07, 1.87333e-15, 5.371)
+
+[node name="Tomato" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31826, 1.33131)
+
+[node name="Tomato2" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.27777, 0.892015)
+
+[node name="Tomato3" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.21679, 0.381934)
+
+[node name="Tomato4" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.41767, 2.03297)
+
+[node name="Tomato5" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.33058, 2.33648)
+
+[node name="Tomato6" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31843, 1.69528)
+
+[node name="Tomato7" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07195, 1.27168, 2.13236)
+
+[node name="Tomato8" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00072, 1.24162, 1.38524)
+
+[node name="Tomato9" parent="Room/Shelf/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.30386, 1.61146)
+
+[node name="Watermelon" parent="Room/Shelf/Food" instance=ExtResource("6_4xtxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01556, 2.29846, -0.403001)
+
+[node name="Beans" parent="Room/Shelf/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.7526)
+
+[node name="Beans2" parent="Room/Shelf/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.15668)
+
+[node name="Beans3" parent="Room/Shelf/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 0.484712)
+
+[node name="Egg" parent="Room/Shelf/Food" instance=ExtResource("8_vq56k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12141, 1.16387, -0.366137)
+
+[node name="Shelf2" parent="Room" instance=ExtResource("4_mwr16")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -10, -4, 2.08165e-12)
+
+[node name="Food" type="Node3D" parent="Room/Shelf2"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, -1, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -2.34774e-07, 1.87333e-15, 5.371)
+
+[node name="Tomato" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31826, 1.33131)
+
+[node name="Tomato2" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.27777, 0.892015)
+
+[node name="Tomato3" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.21679, 0.381934)
+
+[node name="Tomato4" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.41767, 2.03297)
+
+[node name="Tomato5" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.33058, 2.33648)
+
+[node name="Tomato6" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31843, 1.69528)
+
+[node name="Tomato7" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07195, 1.27168, 2.13236)
+
+[node name="Tomato8" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00072, 1.24162, 1.38524)
+
+[node name="Tomato9" parent="Room/Shelf2/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.30386, 1.61146)
+
+[node name="Watermelon" parent="Room/Shelf2/Food" instance=ExtResource("6_4xtxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01556, 2.29846, -0.403001)
+
+[node name="Beans" parent="Room/Shelf2/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.7526)
+
+[node name="Beans2" parent="Room/Shelf2/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.15668)
+
+[node name="Beans3" parent="Room/Shelf2/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 0.484712)
+
+[node name="Egg" parent="Room/Shelf2/Food" instance=ExtResource("8_vq56k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12141, 1.16387, -0.366137)
+
+[node name="Shelf3" parent="Room" instance=ExtResource("4_mwr16")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -5.371, -4, -2.08165e-12)
+
+[node name="Food" type="Node3D" parent="Room/Shelf3"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, -1, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -2.34774e-07, 1.87333e-15, 5.371)
+
+[node name="Tomato" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31826, 1.33131)
+
+[node name="Tomato2" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.27777, 0.892015)
+
+[node name="Tomato3" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.21679, 0.381934)
+
+[node name="Tomato4" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.41767, 2.03297)
+
+[node name="Tomato5" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.33058, 2.33648)
+
+[node name="Tomato6" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31843, 1.69528)
+
+[node name="Tomato7" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07195, 1.27168, 2.13236)
+
+[node name="Tomato8" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00072, 1.24162, 1.38524)
+
+[node name="Tomato9" parent="Room/Shelf3/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.30386, 1.61146)
+
+[node name="Watermelon" parent="Room/Shelf3/Food" instance=ExtResource("6_4xtxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01556, 2.29846, -0.403001)
+
+[node name="Beans" parent="Room/Shelf3/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.7526)
+
+[node name="Beans2" parent="Room/Shelf3/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.15668)
+
+[node name="Beans3" parent="Room/Shelf3/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 0.484712)
+
+[node name="Egg" parent="Room/Shelf3/Food" instance=ExtResource("8_vq56k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12141, 1.16387, -0.366137)
+
+[node name="Shelf4" parent="Room" instance=ExtResource("4_mwr16")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -10, -4, 5)
+
+[node name="Food" type="Node3D" parent="Room/Shelf4"]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, -1, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -2.34774e-07, 1.87333e-15, 5.371)
+
+[node name="Tomato" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31826, 1.33131)
+
+[node name="Tomato2" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.27777, 0.892015)
+
+[node name="Tomato3" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.21679, 0.381934)
+
+[node name="Tomato4" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.41767, 2.03297)
+
+[node name="Tomato5" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.33058, 2.33648)
+
+[node name="Tomato6" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.31843, 1.69528)
+
+[node name="Tomato7" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07195, 1.27168, 2.13236)
+
+[node name="Tomato8" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00072, 1.24162, 1.38524)
+
+[node name="Tomato9" parent="Room/Shelf4/Food" instance=ExtResource("5_72n8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13415, 1.30386, 1.61146)
+
+[node name="Watermelon" parent="Room/Shelf4/Food" instance=ExtResource("6_4xtxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01556, 2.29846, -0.403001)
+
+[node name="Beans" parent="Room/Shelf4/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.7526)
+
+[node name="Beans2" parent="Room/Shelf4/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 1.15668)
+
+[node name="Beans3" parent="Room/Shelf4/Food" instance=ExtResource("7_6nnhf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11459, 0.541576, 0.484712)
+
+[node name="Egg" parent="Room/Shelf4/Food" instance=ExtResource("8_vq56k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12141, 1.16387, -0.366137)
+
+[node name="Version" type="Label" parent="."]
+offset_right = 81.0
+offset_bottom = 49.0
+theme = SubResource("Theme_h8mxr")
+text = "Food Fight
+v0-devel"
+
+[node name="Players" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 5, 2.08165e-12)

@@ -3,9 +3,10 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="Back" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.10101, 2.08165e-12)
+transform = Transform3D(1, 0, -8.0936e-23, -1.5246e-23, -4.37114e-08, -5.30868, 0, 1, -2.3205e-07, 2.08165e-12, 1.10958, 2.28275e-08)
 use_collision = true
-size = Vector3(5, 2.2, 0.1)
+collision_layer = 3
+size = Vector3(5, 0.1, 0.42)
 
 [node name="Shelf2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1633e-12, 1.78229, 0.3)
